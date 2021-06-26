@@ -1,20 +1,16 @@
 const onglets = Array.from(document.querySelectorAll(".onglets"));
-const border =  Array.from(document.querySelectorAll(".border"));
-
-console.log(onglets)
+const border = Array.from(document.querySelectorAll(".border"));
 
 let index = 0;
 
-onglets.forEach((onglet) => {
-    onglet.addEventListener("mouseover", (e) => {
+onglets.forEach(onglet => {
+	onglet.addEventListener("click", e => {
+		const el = e.target;
 
-        const el = e.target;
+		border[index].classList.remove("visible");
 
-        border[index].classList.remove("visible");
+		index = onglets.indexOf(el);
 
-        index = onglets.indexOf(el);
-
-        border[index].classList.add("visible");
-
-    });
+		border[index].classList.add("visible");
+	});
 });
